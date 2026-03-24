@@ -77,7 +77,7 @@ class RadioTest {
     }
 
     @Test
-    void validStationMin() {
+    void invalidStationMin() {
         Radio radio = new Radio();
         radio.setStation(-1);
 
