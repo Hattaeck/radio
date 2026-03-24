@@ -91,7 +91,7 @@ class RadioTest {
     @Test
     void increaseVolume() {
         Radio radio = new Radio();
-        radio.volume = 5;
+        radio.setVolume(5);
         radio.increaseVolume();
 
         int actual = radio.volume;
@@ -103,7 +103,7 @@ class RadioTest {
     @Test
     void increaseVolumeMax() {
         Radio radio = new Radio();
-        radio.volume = 10;
+        radio.setVolume(10);
         radio.increaseVolume();
 
         int actual = radio.volume;
@@ -115,7 +115,7 @@ class RadioTest {
     @Test
     void decreaseVolume() {
         Radio radio = new Radio();
-        radio.volume = 5;
+        radio.setVolume(5);
         radio.decreaseVolume();
 
         int actual = radio.volume;
@@ -127,8 +127,41 @@ class RadioTest {
     @Test
     void decreaseVolumeMax() {
         Radio radio = new Radio();
-        radio.volume = 0;
+        radio.setVolume(0);
         radio.decreaseVolume();
+
+        int actual = radio.volume;
+        int expected = 0;
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void setVolume() {
+        Radio radio = new Radio();
+        radio.setVolume(5);
+
+        int actual = radio.volume;
+        int expected = 5;
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void setVolumeAboveMax() {
+        Radio radio = new Radio();
+        radio.setVolume(15);
+
+        int actual = radio.volume;
+        int expected = 0;
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void setVolumeBelowMin() {
+        Radio radio = new Radio();
+        radio.setVolume(-1);
 
         int actual = radio.volume;
         int expected = 0;

@@ -28,6 +28,11 @@ public class Radio {
         }
     }
 
+    public void setVolume(int number) {
+        if (number >= 0 && number <= 10) {
+            volume = number;
+        }
+    }
 
     public void increaseVolume() {
         if (volume < 10) {
